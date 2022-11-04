@@ -1,9 +1,12 @@
 // URL mapping, from hash to a function that responds to that URL action
+window.jwt = "123";
+
 const router = {
   "/": () => showContent("content-home"),
+  "/wei_auth": () => showContent("content-home"),
   "/profile": () =>
     requireAuth(() => showContent("content-profile"), "/profile"),
-  "/login": () => login()
+  "/login": () => login(),
 };
 
 //Declare helper functions
@@ -51,7 +54,43 @@ const isRouteLink = (element) =>
 const showContent = (id) => {
   eachElement(".page", (p) => p.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
+  if (id === "content-profile") {
+    // TODO: thi is SPA, so we need to push refresh
+    // https://developers.liveperson.com/web-tag-new-page-refresh.html
+    console.log("show lp chat button");
+    // lpTag.sdes = lpTag.sdes || {};
+    // // lpTag.section = ["wat-live", "english"];
+    // lpTag.section = ["development"];
+    // lpTag.sdes.push({
+    //   type: "cart", //mandatory
+    //   total: 11.7, // total value of the cart affter discount
+    //   currency: "USD",
+    //   numItems: 6,
+    //   products: [
+    //     {
+    //       product: {
+    //         name: "prod1",
+    //         category: "category",
+    //         sku: "sku",
+    //         prive: 7.8,
+    //       },
+    //       quantity: 11,
+    //     },
+    //   ],
+    // });
+    // lpTag.identities.push(identityFn);
+  }
 };
+
+// function identityFn(callback) {
+//   console.log("identity function");
+//   callback({
+//     // all three are required
+//     iss: "https://www.liveperson.com",
+//     acr: "loa1",
+//     sub: "920000",
+//   });
+// }
 
 /**
  * Updates the user interface
@@ -67,6 +106,7 @@ const updateUI = async () => {
       console.log(token);
       // this returns a valid JWT, just have to figure out how to add SDEs
       console.log(claims.__raw);
+      window.jwt = claims.__raw;
 
       document.getElementById("profile-data").innerText = JSON.stringify(
         user,

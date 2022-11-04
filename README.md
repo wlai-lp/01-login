@@ -66,3 +66,17 @@ If you have found a bug or if you have a feature request, please report them at 
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE.txt) file for more info.
+
+
+## Reference
+TODO: use auth0 action to add custom claims
+https://auth0.com/blog/adding-custom-claims-to-id-token-with-auth0-actions/
+
+## action works and it added a custom claim
+
+## autenticated engagement should load
+- now it loads on the main / page
+- ideally we want to loan it in the profile page
+- it's a SPA so we need to use refresh when naviagate to /profile page
+- so far it's working with some customer info mapped
+- use auth0 action to add custom claims
