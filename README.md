@@ -1,3 +1,12 @@
+# TL;DR
+## run in docker
+docker run --init -p 3000:3000 -it citionecent/lp-auth
+
+open browser to
+http://localhost:3000/?site=90412079
+
+replace site with your lpsite that has an authenticated engagement
+
 # Sample 01 - Login
 
 The purpose of this article is to demonstrate how simple it is to set up and use the new Single Page Application SDK, and authenticate a user in your application using Auth0's Universal Login Page.

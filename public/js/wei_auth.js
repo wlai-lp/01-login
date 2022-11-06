@@ -6,11 +6,16 @@ let token = "";
 
 const urlParams = new URLSearchParams(window.location.search);
 const mySite = urlParams.get('site');
-
+// save site id to localstorage because callback won't have the query parm
 if(mySite){
   lpTag.site = mySite;
+  localStorage.setItem("lpsite", mySite);
 } else {
-  lpTag.site = 90412079;
+  if(localStorage.lpsite){
+    lpTag.site = localStorage.getItem("lpsite");
+  } else {
+    lpTag.site = 90412079;
+  }
 }
 
 function identityFn(callback) {
