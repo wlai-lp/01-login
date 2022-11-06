@@ -4,6 +4,15 @@
 
 let token = "";
 
+const urlParams = new URLSearchParams(window.location.search);
+const mySite = urlParams.get('site');
+
+if(mySite){
+  lpTag.site = mySite;
+} else {
+  lpTag.site = 90412079;
+}
+
 function identityFn(callback) {
   console.log("identity function");
   callback({
