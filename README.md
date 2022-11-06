@@ -1,6 +1,7 @@
 # TL;DR
+this is for implicit flow, it's in working state
 ## run in docker
-docker run --init -p 3000:3000 -it citionecent/lp-auth
+docker run --init -p 3000:3000 -it citionecent/lp-auth:1.0.0
 
 open browser to
 http://localhost:3000/?site=90412079
