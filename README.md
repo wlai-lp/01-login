@@ -6,6 +6,24 @@ you can see it is used in the log, so when the same code was passed back to LP, 
 again you can see it in the auth0 log
 
 so the way around it is right after initial code return, we can do another signin to get code using the url post from server
+this link
+https://auth0.com/docs/get-started/authentication-and-authorization-flow/add-login-auth-code-flow
+<a href="https://dev-ebsf4fc7.us.auth0.com/authorize?response_type=code&client_id=HsTQCESWlE0rXsNW8rWojAlks5kH7Ss5&redirect_uri=http://localhost:3000&scope=openid%20profile&state=xyzABC123">
+  Sign In
+</a>
+whish implited in the github oauth code and to a new code back, the new code then works in curl to get new token, the sub req failed that's why it proofes 1 time only
+curl command
+
+  curl --request POST \
+  --url 'https://dev-ebsf4fc7.us.auth0.com/oauth/token' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data grant_type=authorization_code \
+  --data 'client_id=HsTQCESWlE0rXsNW8rWojAlks5kH7Ss5' \
+  --data client_secret=0nYi_CQ28UPpHtpHf1zg7u2IFiWsyxB6jVLHRB7qRxspEuMOkUUPtoGXlZeFhJyb \
+  --data code=tFh2Tud7EfuQ7YKYES-66SqLoMcS9TnmXpQxVpsD_Xiq3 \
+  --data 'redirect_uri=http://localhost:3000'
+
+
 
 the way sdk works is it redeem th
 

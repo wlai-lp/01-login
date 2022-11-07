@@ -57,6 +57,7 @@ var settings = {
 $.ajax(settings).done(function (response) {
   console.log("code = " + response);
   code = response;
+  window.code = response;
 });
 
 lpTag.section = ["development"];

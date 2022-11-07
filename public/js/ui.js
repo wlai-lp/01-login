@@ -100,13 +100,13 @@ const updateUI = async () => {
     const isAuthenticated = await auth0Client.isAuthenticated();
 
     if (isAuthenticated) {
-      const user = await auth0Client.getUser();
-      const token = await auth0Client.getTokenSilently();
-      const claims = await auth0Client.getIdTokenClaims();
-      console.log(token);
+      const user = await auth0Client.getUser();  
+      //const token = await auth0Client.getTokenSilently();  // i'm guess this is the one that redeem the token, make if we skip this step
+      //const claims = await auth0Client.getIdTokenClaims();
+      console.log(window.code);
       // this returns a valid JWT, just have to figure out how to add SDEs
-      console.log(claims.__raw);
-      window.jwt = claims.__raw;
+      //console.log(claims.__raw);
+      //window.jwt = claims.__raw;
 
       document.getElementById("profile-data").innerText = JSON.stringify(
         user,
