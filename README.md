@@ -1,5 +1,14 @@
 # TL;DR
 this is for code flow, WIP
+
+these codes are 1 time use only, right after you sign in using the sdk, it redeem the code to get userprofile for the avator
+you can see it is used in the log, so when the same code was passed back to LP, LP couldn't use it
+again you can see it in the auth0 log
+
+so the way around it is right after initial code return, we can do another signin to get code using the url post from server
+
+the way sdk works is it redeem th
+
 ## run in docker
 //docker run --init -p 3000:3000 -it citionecent/lp-auth:1.0.0
 
@@ -7,6 +16,79 @@ open browser to
 http://localhost:3000/?site=90412079
 
 replace site with your lpsite that has an authenticated engagement
+
+
+
+
+# notes
+https://auth0.com/docs/authenticate/login/oidc-conformant-authentication/oidc-adoption-auth-code-flow#code-exchange-request-authorization-code-flow
+// tried the manual curl from the doc using the code returned, also failed, maybe it's a 1 time use code only?
+// yeah i was right, it's
+
+// LP does work, there are the log from auth0, lp one does not have, username
+//this works from the webapp
+// who is amking this authorization code for access token
+{
+  "date": "2022-11-06T22:56:52.981Z",
+  "type": "seacft",
+  "description": "Authorization Code for Access Token",
+  "connection_id": "",
+  "client_id": "HsTQCESWlE0rXsNW8rWojAlks5kH7Ss5",
+  "client_name": "lp-guide",
+  "ip": "173.48.207.184",
+  "user_agent": "Chrome 107.0.0 / Windows 10.0.0",
+  "details": {
+    "code": "******************************************PDH"
+  },
+  "hostname": "dev-ebsf4fc7.us.auth0.com",
+  "user_id": "auth0|635597736bfc2845ff3ab940",
+  "user_name": "wlai+oauth@liveperson.com",
+  "auth0_client": {
+    "name": "auth0-spa-js",
+    "version": "2.0.0"
+  },
+  "log_id": "90020221106225657127344338174467560571679411426601992274",
+  "_id": "90020221106225657127344338174467560571679411426601992274",
+  "isMobile": false,
+  "id": "90020221106225657127344338174467560571679411426601992274"
+}
+
+// this failed on lp side
+{
+  "date": "2022-11-06T22:57:51.623Z",
+  "type": "feacft",
+  "description": "Invalid authorization code",
+  "connection_id": "",
+  "client_id": "HsTQCESWlE0rXsNW8rWojAlks5kH7Ss5",
+  "client_name": "lp-guide",
+  "ip": "208.89.12.137",
+  "user_agent": "Java 8.0.322 / Other 0.0.0",
+  "details": {
+    "code": "******************************************PDH"
+  },
+  "hostname": "dev-ebsf4fc7.us.auth0.com",
+  "user_id": "",    // missing user id...
+  "user_name": "",  // missing user_name...
+  "log_id": "90020221106225756078145807643147567630596696826003324994",
+  "_id": "90020221106225756078145807643147567630596696826003324994",
+  "isMobile": true,
+  "id": "90020221106225756078145807643147567630596696826003324994"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Sample 01 - Login
 
