@@ -21,6 +21,13 @@ app.get("/getcode", (req, res) => {
   if(loggedIn){
     res.send(code);
   }
+  
+});
+
+app.get("/callback", (req, res) => {
+  // res.send(code);
+  // if logged in then we request another code
+  console.log(res);
 });
 
 app.get("/*", (_, res) => {
@@ -29,6 +36,7 @@ app.get("/*", (_, res) => {
   const urlParams = new URLSearchParams(res.req.url);
   if(urlParams.get('/?code')){
     code = urlParams.get('/?code');
+    console.log("code is " + code);
     loggedIn = true;
   }
   

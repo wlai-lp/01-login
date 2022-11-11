@@ -1,6 +1,6 @@
 # TL;DR
 this is for code flow, WIP
-
+# 11/9
 these codes are 1 time use only, right after you sign in using the sdk, it redeem the code to get userprofile for the avator
 you can see it is used in the log, so when the same code was passed back to LP, LP couldn't use it
 again you can see it in the auth0 log
@@ -11,7 +11,7 @@ https://auth0.com/docs/get-started/authentication-and-authorization-flow/add-log
 <a href="https://dev-ebsf4fc7.us.auth0.com/authorize?response_type=code&client_id=HsTQCESWlE0rXsNW8rWojAlks5kH7Ss5&redirect_uri=http://localhost:3000&scope=openid%20profile&state=xyzABC123">
   Sign In
 </a>
-whish implited in the github oauth code and to a new code back, the new code then works in curl to get new token, the sub req failed that's why it proofes 1 time only
+when implemented in the github oauth code and to a new code back, the new code then works in curl to get new token, the sub req failed that's why it proofes 1 time only
 curl command
 
   curl --request POST \
@@ -23,7 +23,9 @@ curl command
   --data code=tFh2Tud7EfuQ7YKYES-66SqLoMcS9TnmXpQxVpsD_Xiq3 \
   --data 'redirect_uri=http://localhost:3000'
 
-
+# 11/10
+WIP - trying to use js to call the end point, but getting cors error, stash for now since i alreay
+have a working code
 
 the way sdk works is it redeem th
 

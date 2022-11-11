@@ -5,13 +5,13 @@
 let code = "";
 
 const urlParams = new URLSearchParams(window.location.search);
-const mySite = urlParams.get('site');
+const mySite = urlParams.get("site");
 // save site id to localstorage because callback won't have the query parm
-if(mySite){
+if (mySite) {
   lpTag.site = mySite;
   localStorage.setItem("lpsite", mySite);
 } else {
-  if(localStorage.lpsite){
+  if (localStorage.lpsite) {
     lpTag.site = localStorage.getItem("lpsite");
   } else {
     lpTag.site = 90412079;
@@ -29,8 +29,40 @@ function identityFn(callback) {
 }
 lpTag.identities.push(identityFn);
 
-// Authentication JSMethod for LiveEngage
+function fetchNewCode() {
+  const url =
+    "https://dev-ebsf4fc7.us.auth0.com/authorize?response_type=code&client_id=HsTQCESWlE0rXsNW8rWojAlks5kH7Ss5&redirect_uri=http://localhost:3000/callback&scope=openid%20profile&state=xyzABC123";
+  fetch(url, {
+    headers: {
+      "User-Agent": "My User Agent",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    });
+}
+
 window.lpGetAuthenticationToken = function (callback) {
+  console.log("inside lpGetAuthenticationToken!");
+
+  const url =
+    "https://dev-ebsf4fc7.us.auth0.com/authorize?response_type=code&client_id=HsTQCESWlE0rXsNW8rWojAlks5kH7Ss5&redirect_uri=http://localhost:3000/callback&scope=openid%20profile&state=xyzABC123";
+  fetch(url, {mode: 'cors'})
+    .then((response) => {
+      debugger;
+      response.json();
+    })
+    .then((code) => {
+      console.log(code);
+      console.log("got code! " + code);
+      console.log("calling callback with code...");
+      callback(code);
+    });
+};
+
+// Authentication JSMethod for LiveEngage
+window.lpGetAuthenticationToken2 = function (callback) {
   console.log("inside lpGetAuthenticationToken!");
   /**
      * if token expires, use this curl command to get a new one, run it in terminal
@@ -49,9 +81,9 @@ window.lpGetAuthenticationToken = function (callback) {
 };
 
 var settings = {
-  async: true,  
+  async: true,
   url: "/getcode",
-  method: "GET"
+  method: "GET",
 };
 
 $.ajax(settings).done(function (response) {
