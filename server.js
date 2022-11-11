@@ -2,9 +2,11 @@ const express = require("express");
 const { join } = require("path");
 const morgan = require("morgan");
 const helmet = require("helmet");
+var bodyParser = require('body-parser');
 
 const app = express();
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 app.use(morgan("dev"));
 app.use(helmet());
 app.use(express.static(join(__dirname, "public")));
@@ -17,10 +19,9 @@ app.get("/newsite", (_, res) => {
   res.sendFile(join(__dirname, "newsite.html"));
 });
 
-app.get("/newengagement", (_, res) => {
+app.post("/newengagement", (req, res) => {
   console.log("in engagement");
   var https = require("follow-redirects").https;
-  var fs = require("fs");
 
   var options = {
     method: "POST",

@@ -331,27 +331,37 @@ $(document).ready(function () {
       .catch((error) => console.log("error", error));
   }
 
-  async function testEngagement() {
-    return await fetch("/newengagement");
+  async function testEngagement(site) {
+    var myHeaders = new Headers();
+    myHeaders.append("content-type", "application/json");
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: JSON.stringify(site),
+      redirect: "follow",
+    };
+    return await fetch("/newengagement", requestOptions);
   }
 
   (async () => {
-    await testEngagement();
-    // newSite.account = 25754758;
-    // newSite.vep = await getVep(newSite.account);
-    // newSite.bearer = await getBearer(newSite.account, newSite.vep);
-    // newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
-    // newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
-    // newSite.onsiteLocaitonId = await getOnsiteLocationId(
-    //   newSite.account,
-    //   newSite.bearer
-    // );
-    // newSite.visitorBehavior = await getVisitorBehavior(
-    //   newSite.account,
-    //   newSite.bearer
-    // );
-    // newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
+    
+    newSite.account = 25754758;
+    newSite.vep = await getVep(newSite.account);
+    newSite.bearer = await getBearer(newSite.account, newSite.vep);
+    newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
+    newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
+    newSite.onsiteLocaitonId = await getOnsiteLocationId(
+      newSite.account,
+      newSite.bearer
+    );
+    newSite.visitorBehavior = await getVisitorBehavior(
+      newSite.account,
+      newSite.bearer
+    );
+    newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
     // newSite.engagementId = await createEngagement(newSite);
+
+    await testEngagement(newSite);
     // console.log("async");
   })();
 });
