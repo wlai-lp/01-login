@@ -9,10 +9,7 @@ $(document).ready(function () {
     myHeaders.append("authority", "va-a.ac.liveperson.net");
     myHeaders.append("accept", "*/*");
     myHeaders.append("accept-language", "en-US,en;q=0.9");
-    myHeaders.append(
-      "authorization",
-      "Bearer " + site.bearer
-    );
+    myHeaders.append("authorization", "Bearer " + site.bearer);
     myHeaders.append("content-type", "application/json; charset=UTF-8");
     myHeaders.append(
       "cookie",
@@ -63,7 +60,11 @@ $(document).ready(function () {
     };
 
     return await fetch(
-      "https://va-a.ac.liveperson.net/api/account/" + site.account + "/configuration/le-campaigns/campaigns/" + site.campaign + "/engagements?v=3.4&__d=2853",
+      "https://va-a.ac.liveperson.net/api/account/" +
+        site.account +
+        "/configuration/le-campaigns/campaigns/" +
+        site.campaign +
+        "/engagements?v=3.4&__d=2853",
       requestOptions
     )
       .then((response) => response.text())
@@ -330,22 +331,27 @@ $(document).ready(function () {
       .catch((error) => console.log("error", error));
   }
 
+  async function testEngagement() {
+    return await fetch("/newengagement");
+  }
+
   (async () => {
-    newSite.account = 25754758;
-    newSite.vep = await getVep(newSite.account);
-    newSite.bearer = await getBearer(newSite.account, newSite.vep);
-    newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
-    newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
-    newSite.onsiteLocaitonId = await getOnsiteLocationId(
-      newSite.account,
-      newSite.bearer
-    );
-    newSite.visitorBehavior = await getVisitorBehavior(
-      newSite.account,
-      newSite.bearer
-    );
-    newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
-    newSite.engagementId = await createEngagement(newSite);
+    await testEngagement();
+    // newSite.account = 25754758;
+    // newSite.vep = await getVep(newSite.account);
+    // newSite.bearer = await getBearer(newSite.account, newSite.vep);
+    // newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
+    // newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
+    // newSite.onsiteLocaitonId = await getOnsiteLocationId(
+    //   newSite.account,
+    //   newSite.bearer
+    // );
+    // newSite.visitorBehavior = await getVisitorBehavior(
+    //   newSite.account,
+    //   newSite.bearer
+    // );
+    // newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
+    // newSite.engagementId = await createEngagement(newSite);
     // console.log("async");
   })();
 });
