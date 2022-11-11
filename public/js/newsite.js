@@ -340,11 +340,16 @@ $(document).ready(function () {
       body: JSON.stringify(site),
       redirect: "follow",
     };
-    return await fetch("/newengagement", requestOptions);
+    return await fetch("/newengagement", requestOptions)
+      .then((response) => response.status)
+      .then((result) => {
+        console.log(result);        
+        return result;
+      })
+      .catch((error) => console.log("error", error));
   }
 
   (async () => {
-    
     newSite.account = 25754758;
     newSite.vep = await getVep(newSite.account);
     newSite.bearer = await getBearer(newSite.account, newSite.vep);
@@ -361,7 +366,7 @@ $(document).ready(function () {
     newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
     // newSite.engagementId = await createEngagement(newSite);
 
-    await testEngagement(newSite);
-    // console.log("async");
+    newSite.url = await testEngagement(newSite);
+    console.log("new site " + newSite.url);
   })();
 });

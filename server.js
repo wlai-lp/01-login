@@ -92,11 +92,12 @@ app.post("/newengagement", (req, res) => {
 
   req.end();
 
-  res.sendFile(join(__dirname, "index.html"));
+  res.status(200);
+    
 });
 
 app.get("/*", (_, res) => {
-  res.sendFile(join(__dirname, "index.html"));
+  res.sendFile(join(__dirname, "index.html"));  
 });
 
 process.on("SIGINT", function () {
