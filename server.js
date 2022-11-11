@@ -12,6 +12,11 @@ app.get("/auth_config.json", (req, res) => {
   res.sendFile(join(__dirname, "auth_config.json"));
 });
 
+app.get("/newsite", (_, res) => {
+  res.sendFile(join(__dirname, "newsite.html"));
+});
+
+
 app.get("/*", (_, res) => {
   res.sendFile(join(__dirname, "index.html"));
 });
