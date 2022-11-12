@@ -7,6 +7,12 @@ http://localhost:3000/?site=90412079
 
 replace site with your lpsite that has an authenticated engagement
 
+# Branches
+## master - i am abandoning this because the 2 branches below
+## lp-implicit - working webapp with lp-implicit idp config
+## lp-code - WIP
+
+
 # Sample 01 - Login
 
 The purpose of this article is to demonstrate how simple it is to set up and use the new Single Page Application SDK, and authenticate a user in your application using Auth0's Universal Login Page.
