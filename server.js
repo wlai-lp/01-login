@@ -19,6 +19,11 @@ app.get("/newsite", (_, res) => {
   res.sendFile(join(__dirname, "newsite.html"));
 });
 
+app.get("/newsite", (req, res) => {
+  console.log("in newsite");
+  
+});
+
 app.post("/newengagement", (req, res) => {
   console.log("in engagement");
   var site = req.body;
@@ -26,7 +31,7 @@ app.post("/newengagement", (req, res) => {
 
   var options = {
     method: "POST",
-    hostname: "va-a.ac.liveperson.net",
+    hostname: "va.ac.liveperson.net",
     path:
       "/api/account/" +
       req.body.account +
@@ -34,7 +39,7 @@ app.post("/newengagement", (req, res) => {
       req.body.campaign +
       "/engagements?v=3.4&__d=2853",
     headers: {
-      authority: "va-a.ac.liveperson.net",
+      authority: "va.ac.liveperson.net",
       accept: "*/*",
       "accept-language": "en-US,en;q=0.9",
       authorization: "Bearer " + req.body.bearer,
@@ -44,9 +49,9 @@ app.post("/newengagement", (req, res) => {
       "lp-domain-referer": "https://z1-a.le.liveperson.net",
       "lp-url":
         "https://z1-a.le.liveperson.net/a/5660383/#/camp/campaigns/web/4461081132/engagement/web/new/windows",
-      origin: "https://va-a.ac.liveperson.net",
+      origin: "https://va.ac.liveperson.net",
       referer:
-        "https://va-a.ac.liveperson.net/postmessage/postmessage.min.html?bust=1667937353220&loc=https%3A%2F%2Fz1-a.le.liveperson.net",
+        "https://va.ac.liveperson.net/postmessage/postmessage.min.html?bust=1667937353220&loc=https%3A%2F%2Fz1-a.le.liveperson.net",
       "sec-ch-ua":
         '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
       "sec-ch-ua-mobile": "?0",
