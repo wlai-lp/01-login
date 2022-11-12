@@ -283,7 +283,7 @@ $(document).ready(function () {
 
   async function createSite() {
     
-    return await fetch("/newsite")
+    return await fetch("/newlpsite")
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
@@ -312,7 +312,7 @@ $(document).ready(function () {
 
   (async () => {
     // newSite.account = 65261399;
-    //newSite.account = await createSite();
+    newSite.account = await createSite();
     newSite.vep = await getVep(newSite.account);
     // newSite.bearer = await getBearer(newSite.account, newSite.vep);
     // newSite.implicit = await setIdp(newSite);
