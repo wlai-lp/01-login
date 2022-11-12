@@ -287,6 +287,9 @@ $(document).ready(function () {
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
+        var jsonData = JSON.parse(result);
+        var result = jsonData.account;
+        console.log("account = " + result);
         return result;
       })
       .catch((error) => console.log("error", error));
@@ -314,20 +317,20 @@ $(document).ready(function () {
     // newSite.account = 65261399;
     newSite.account = await createSite();
     newSite.vep = await getVep(newSite.account);
-    // newSite.bearer = await getBearer(newSite.account, newSite.vep);
-    // newSite.implicit = await setIdp(newSite);
-    // newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
-    // newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
-    // newSite.onsiteLocaitonId = await getOnsiteLocationId(
-    //   newSite.account,
-    //   newSite.bearer
-    // );
-    // newSite.visitorBehavior = await getVisitorBehavior(
-    //   newSite.account,
-    //   newSite.bearer
-    // );
-    // newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
-    // newSite.url = await testEngagement(newSite);
-    // location.href = "http://localhost:3000/?site=" + newSite.account
+    newSite.bearer = await getBearer(newSite.account, newSite.vep);
+    newSite.implicit = await setIdp(newSite);
+    newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
+    newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
+    newSite.onsiteLocaitonId = await getOnsiteLocationId(
+      newSite.account,
+      newSite.bearer
+    );
+    newSite.visitorBehavior = await getVisitorBehavior(
+      newSite.account,
+      newSite.bearer
+    );
+    newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
+    newSite.url = await testEngagement(newSite);
+    location.href = "http://localhost:3000/?site=" + newSite.account
   })();
 });

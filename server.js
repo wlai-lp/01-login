@@ -26,9 +26,27 @@ app.get("/newlpsite", (_, res2) => {
 
   var options = {
     method: "POST",
-    hostname: "6352f03ad0bca53a8eb82763.mockapi.io",
-    path: "/account",
-    headers: {},
+    hostname: "supportlab.lpnet.com",
+    path: "/api/le/register?requestor=registerer",
+    headers: {
+      authority: "supportlab.lpnet.com",
+      accept: "application/json, text/plain, */*",
+      "accept-language": "en-US,en;q=0.9",
+      "cache-control": "no-cache",
+      "content-type": "application/json;charset=UTF-8",
+      origin: "https://supportal.lpnet.com",
+      pragma: "no-cache",
+      referer: "https://supportal.lpnet.com/",
+      "sec-ch-ua":
+        '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": '"macOS"',
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-site",
+      "user-agent":
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+    },
     maxRedirects: 20,
   };
 
@@ -42,7 +60,6 @@ app.get("/newlpsite", (_, res2) => {
     res.on("end", function (chunk) {
       var body = Buffer.concat(chunks);
       console.log(body.toString());
-      // return body;
       res2.send(body.toString());
     });
 
@@ -51,8 +68,12 @@ app.get("/newlpsite", (_, res2) => {
     });
   });
 
+  var postData =
+    '{\n    "domain": "sales.liveperson.net",\n    "language": "en-US",\n    "flow": "Trial",\n    "email": "wlai@liveperson.com",\n    "platform": "Messaging",\n    "provisioningData": {\n        "packages": [\n            "LE_Platform"\n        ],\n        "acFeatures": [\n            "Common.Async_Messaging",\n            "Common.RichContent",\n            "Messaging.Un_Auth_Messaging",\n            "LEUI.Enforce_New_Agent_Workspace",\n            "Analytics.LiveEngage_2_SentimentAnalysis",\n            "Cobrowse.Cobrowse_Integration",\n            "Common.AgentGroups",\n            "Common.Api_key_management",\n            "Common.Billing_CPI2",\n            "Common.LiveEngage_2",\n            "Common.LiveEngage_2_Limit_Sticky_Size",\n            "Common.LiveEngage_2_Unified_window",\n            "Common.Profiles",\n            "LEUI.ConnectionBar_Display",\n            "LEUI.WebAnalytics",\n            "Reports.LiveEngage_2_EngagementHistory"\n        ]\n    },\n    "username": "authagent",\n    "password": "P@ssword1!"\n}';
+
+  req.write(postData);
+
   req.end();
-  // res.status(200);
 });
 
 app.post("/newidp", (req, res) => {
