@@ -1,3 +1,9 @@
+let newSite = {};
+
+async function createEnagement() {
+  
+}
+
 // (A) SHOW & HIDE SPINNER
 function show () {
   // validate form first
