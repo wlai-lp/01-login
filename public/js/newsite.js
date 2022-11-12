@@ -4,74 +4,6 @@ $(document).ready(function () {
 
   let newSite = {};
 
-  async function createEngagement(site) {
-    var myHeaders = new Headers();
-    myHeaders.append("authority", "va.ac.liveperson.net");
-    myHeaders.append("accept", "*/*");
-    myHeaders.append("accept-language", "en-US,en;q=0.9");
-    myHeaders.append("authorization", "Bearer " + site.bearer);
-    myHeaders.append("content-type", "application/json; charset=UTF-8");
-    myHeaders.append(
-      "cookie",
-      "_hjSessionUser_1461756=eyJpZCI6IjUwNWNmMzk5LWY3YTQtNTQwMy04MzM2LTRkNGYwNTU0YzQyZCIsImNyZWF0ZWQiOjE2NTM1ODE5NTgwMzEsImV4aXN0aW5nIjp0cnVlfQ==; fbm_671485303699189=base_domain=.liveperson.net; LPVID=EzMzgzZDVhN2EwNjkzMjk3; _ga=GA1.2.1436664101.1665522100; _ga_2LLGYKSTDJ=GS1.1.1667242765.11.0.1667242765.60.0.0; LPSID-5288836=lboG7pGPT_aAPEZcgj7HUQ; idpLastSiteId=5660383; idpLastDomain=va-a2.c.liveperson.net; JSESSIONID=FC28A4F6238DB4A6561D1D36EAD6A314; JSESSIONID=CECF0B70C1E20F121EF548AFABAE0E34"
-    );
-    myHeaders.append("lp-domain-referer", "https://z1-a.le.liveperson.net");
-    myHeaders.append(
-      "lp-url",
-      "https://z1-a.le.liveperson.net/a/5660383/#/camp/campaigns/web/4461081132/engagement/web/new/windows"
-    );
-    myHeaders.append("origin", "https://va.ac.liveperson.net");
-    myHeaders.append(
-      "referer",
-      "https://va.ac.liveperson.net/postmessage/postmessage.min.html?bust=1667937353220&loc=https%3A%2F%2Fz1-a.le.liveperson.net"
-    );
-    myHeaders.append(
-      "sec-ch-ua",
-      '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"'
-    );
-    myHeaders.append("sec-ch-ua-mobile", "?0");
-    myHeaders.append("sec-ch-ua-platform", '"macOS"');
-    myHeaders.append("sec-fetch-dest", "empty");
-    myHeaders.append("sec-fetch-mode", "cors");
-    myHeaders.append("sec-fetch-site", "same-origin");
-    myHeaders.append(
-      "user-agent",
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
-    );
-    myHeaders.append("x-requested-with", "XMLHttpRequest");
-
-    var raw =
-      '{\n    "id": null,\n    "name": "Engagement xxx",\n    "description": "",\n    "weight": 0.5,\n    "enabled": true,\n    "deleted": false,\n    "windowId": 4461570932,\n    "isPopOut": false,\n    "useSystemRouting": false,\n    "renderingType": 0,\n    "appInstallationId": null,\n    "channel": 1,\n    "showSmsPreSurveyOnMobile": false,\n    "language": "en-US",\n    "onsiteLocations": [\n        4461571732\n    ],\n    "visitorBehaviors": [\n        4461571632\n    ],\n    "source": 0,\n    "isUnifiedWindow": true,\n    "type": 6,\n    "externalTargets": null,\n    "displayInstances": [\n        {\n            "events": {\n                "click": {\n                    "enabled": true,\n                    "target": "_blank"\n                }\n            },\n            "presentation": {\n                "background": {\n                    "color": "#0363AD",\n                    "image": ""\n                },\n                "border": {\n                    "radius": 30,\n                    "width": 0,\n                    "color": "transparent"\n                },\n                "size": {\n                    "width": "40",\n                    "height": "152"\n                },\n                "elements": {\n                    "images": [\n                        {\n                            "imageUrl": "{galleryBasePath}/preview/chat/t2_c9_sn11_th4_s4_asset.png",\n                            "alt": "",\n                            "css": {\n                                "left": 8,\n                                "top": 113,\n                                "zIndex": 600\n                            }\n                        }\n                    ],\n                    "labels": [\n                        {\n                            "text": "Message us",\n                            "css": {\n                                "color": "#ffffff",\n                                "fontFamily": "Arial,Helvetica,sans-serif",\n                                "fontSize": 16,\n                                "fontStyle": "normal",\n                                "fontWeight": "normal",\n                                "left": -23,\n                                "top": 53,\n                                "transform": "rotate(270deg)",\n                                "white-space": "nowrap",\n                                "zIndex": 601\n                            }\n                        }\n                    ]\n                }\n            },\n            "macros": [],\n            "displayInstanceType": 2,\n            "enabled": true\n        },\n        {\n            "events": {\n                "click": {\n                    "enabled": true,\n                    "target": "_blank"\n                }\n            },\n            "presentation": {\n                "background": {\n                    "color": "#0363AD",\n                    "image": ""\n                },\n                "border": {\n                    "radius": 30,\n                    "width": 0,\n                    "color": "transparent"\n                },\n                "size": {\n                    "width": "40",\n                    "height": "152"\n                },\n                "elements": {\n                    "images": [\n                        {\n                            "imageUrl": "{galleryBasePath}/preview/chat/t2_c9_sn11_th4_s4_asset.png",\n                            "alt": "",\n                            "css": {\n                                "left": 8,\n                                "top": 113,\n                                "zIndex": 600\n                            }\n                        }\n                    ],\n                    "labels": [\n                        {\n                            "text": "Message us",\n                            "css": {\n                                "color": "#ffffff",\n                                "fontFamily": "Arial,Helvetica,sans-serif",\n                                "fontSize": 16,\n                                "fontStyle": "normal",\n                                "fontWeight": "normal",\n                                "left": -23,\n                                "top": 53,\n                                "transform": "rotate(270deg)",\n                                "white-space": "nowrap",\n                                "zIndex": 601\n                            }\n                        }\n                    ]\n                }\n            },\n            "macros": [],\n            "displayInstanceType": 1,\n            "enabled": true\n        },\n        {\n            "events": {\n                "click": {\n                    "enabled": true,\n                    "target": "_blank"\n                }\n            },\n            "presentation": {\n                "background": {\n                    "color": "#0363AD",\n                    "image": ""\n                },\n                "border": {\n                    "radius": 30,\n                    "width": 0,\n                    "color": "transparent"\n                },\n                "size": {\n                    "width": "40",\n                    "height": "152"\n                },\n                "elements": {\n                    "images": [\n                        {\n                            "imageUrl": "{galleryBasePath}/preview/chat/t2_c9_sn11_th4_s4_asset.png",\n                            "alt": "",\n                            "css": {\n                                "left": 8,\n                                "top": 113,\n                                "zIndex": 600\n                            }\n                        }\n                    ],\n                    "labels": [\n                        {\n                            "text": "Message us",\n                            "css": {\n                                "color": "#ffffff",\n                                "fontFamily": "Arial,Helvetica,sans-serif",\n                                "fontSize": 16,\n                                "fontStyle": "normal",\n                                "fontWeight": "normal",\n                                "left": -23,\n                                "top": 53,\n                                "transform": "rotate(270deg)",\n                                "white-space": "nowrap",\n                                "zIndex": 601\n                            }\n                        }\n                    ]\n                }\n            },\n            "macros": [],\n            "displayInstanceType": 4,\n            "enabled": true\n        }\n    ],\n    "position": {\n        "left": 0,\n        "top": 0,\n        "type": 6\n    },\n    "followMePages": 1,\n    "followMeTime": 0,\n    "timeInQueue": 0,\n    "availabilityPolicy": 0,\n    "conversationType": 1,\n    "connectorId": 4461573132,\n    "allowUnauthMsg": false,\n    "skillId": null,\n    "skillName": null,\n    "viewErrors": 0,\n    "subType": 24\n}';
-
-    debugger;
-    var jsonData = JSON.parse(raw);
-    jsonData.windowId = site.windowId;
-    jsonData.onsiteLocations[0] = site.onsiteLocaitonId;
-    jsonData.visitorBehaviors[0] = site.visitorBehavior;
-    jsonData.connectorId = site.connectorId;
-
-    raw = JSON.stringify(jsonData);
-
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-
-    return await fetch(
-      "https://va.ac.liveperson.net/api/account/" +
-        site.account +
-        "/configuration/le-campaigns/campaigns/" +
-        site.campaign +
-        "/engagements?v=3.4&__d=2853",
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  }
-
   async function getConnectorId(account, bearer) {
     var myHeaders = new Headers();
     myHeaders.append("authorization", "Bearer " + bearer);
@@ -350,49 +282,11 @@ $(document).ready(function () {
   }
 
   async function createSite() {
-    var myHeaders = new Headers();
-    myHeaders.append("authority", "supportlab.lpnet.com");
-    myHeaders.append("accept", "application/json, text/plain, */*");
-    myHeaders.append("accept-language", "en-US,en;q=0.9");
-    myHeaders.append("cache-control", "no-cache");
-    myHeaders.append("content-type", "application/json;charset=UTF-8");
-    myHeaders.append("origin", "https://supportal.lpnet.com");
-    myHeaders.append("pragma", "no-cache");
-    myHeaders.append("referer", "https://supportal.lpnet.com/");
-    myHeaders.append(
-      "sec-ch-ua",
-      '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"'
-    );
-    myHeaders.append("sec-ch-ua-mobile", "?0");
-    myHeaders.append("sec-ch-ua-platform", '"macOS"');
-    myHeaders.append("sec-fetch-dest", "empty");
-    myHeaders.append("sec-fetch-mode", "cors");
-    myHeaders.append("sec-fetch-site", "same-site");
-    myHeaders.append(
-      "user-agent",
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
-    );
-
-    var raw =
-      '{\n    "domain": "sales.liveperson.net",\n    "language": "en-US",\n    "flow": "Trial",\n    "email": "wlai@liveperson.com",\n    "platform": "Messaging",\n    "provisioningData": {\n        "packages": [\n            "LE_Platform"\n        ],\n        "acFeatures": [\n            "Common.Async_Messaging",\n            "Common.RichContent",\n            "Messaging.Un_Auth_Messaging",\n            "LEUI.Enforce_New_Agent_Workspace",\n            "Analytics.LiveEngage_2_SentimentAnalysis",\n            "Cobrowse.Cobrowse_Integration",\n            "Common.AgentGroups",\n            "Common.Api_key_management",\n            "Common.Billing_CPI2",\n            "Common.LiveEngage_2",\n            "Common.LiveEngage_2_Limit_Sticky_Size",\n            "Common.LiveEngage_2_Unified_window",\n            "Common.Profiles",\n            "LEUI.ConnectionBar_Display",\n            "LEUI.WebAnalytics",\n            "Reports.LiveEngage_2_EngagementHistory"\n        ]\n    },\n    "username": "authagent",\n    "password": "P@ssword1!"\n}';
-
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-
-    return await fetch(
-      "https://supportlab.lpnet.com/api/le/register?requestor=registerer",
-      requestOptions
-    )
+    
+    return await fetch("/newsite")
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
-        var jsonData = JSON.parse(result);
-        var result = jsonData.account;
-        console.log("🚀 account id " + result);
         return result;
       })
       .catch((error) => console.log("error", error));
@@ -417,12 +311,11 @@ $(document).ready(function () {
   }
 
   (async () => {
-    newSite.account = 65261399;
-    // newSite.account = await createSite();
+    // newSite.account = 65261399;
+    //newSite.account = await createSite();
     newSite.vep = await getVep(newSite.account);
-    newSite.bearer = await getBearer(newSite.account, newSite.vep);
-    newSite.implicit = await setIdp(newSite);
-
+    // newSite.bearer = await getBearer(newSite.account, newSite.vep);
+    // newSite.implicit = await setIdp(newSite);
     // newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
     // newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
     // newSite.onsiteLocaitonId = await getOnsiteLocationId(
@@ -434,9 +327,7 @@ $(document).ready(function () {
     //   newSite.bearer
     // );
     // newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
-    // // newSite.engagementId = await createEngagement(newSite);
-
     // newSite.url = await testEngagement(newSite);
-    // console.log("new site " + newSite.url);
+    // location.href = "http://localhost:3000/?site=" + newSite.account
   })();
 });
