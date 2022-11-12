@@ -16,7 +16,7 @@ app.get("/auth_config.json", (req, res) => {
 });
 
 app.get("/newsite", (_, res) => {
-  res.sendFile(join(__dirname, "newsite.html"));
+  res.sendFile(join(__dirname, "newsite2.html"));
 });
 
 app.get("/newlpsite", (_, res2) => {

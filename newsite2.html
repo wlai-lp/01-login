@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap 5 Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/newsite2.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+      <h1>LP Authenticated Messaging Generator</h1>
+      <p>follow these 2 steps to generate a test site and an auth engagement!</p>
+    </div>
+    <div class="container mt-5">
+      <div class="row gap-2">
+        <div class="border col-sm-9">
+          <h3 class="text-center">Step 1</h3>
+          <p">Create Site</p>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.w3schools.com" allowfullscreen></iframe>
+          </div>
+          
+        </div>
+        <div class="border col-sm-2">
+          <h3 class="text-center">Step 2</h3>
+          <p>Enter site info from step 1</p>
+          <p>
+            <div class="mb-3">
+              <form>
+                <div class="form-floating my-3">
+                  <input type="text" class="form-control" id="siteId" placeholder="456897" required>
+                  <label for="site" class="form-label">Site ID</label>
+                </div>
+                <div class="form-floating my-3">
+                  <input type="text" class="form-control" id="userId" placeholder="456897" required>
+                  <label for="site" class="form-label">User ID</label>
+                </div>
+                <div class="form-floating my-3">
+                  <input type="text" class="form-control" id="pwd" placeholder="456897" required>
+                  <label for="site" class="form-label">Password</label>
+                </div>
+                <div class="col-md-12 bg-light text-right">
+                  <button id="create" type="button" class="btn btn-outline-success" data-bs-toggle="button" onclick="">
+                    Create Engagement 
+                  </button>
+                </div>
+              </form>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="spinner">
+      <!-- <img src="images/snail.gif"/> -->
+      <img calss="position-absolute top-0 start-0 translate-middle" src="../images/earth.gif"/>
+    </div>
+  </body>
+</html>
