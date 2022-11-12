@@ -170,11 +170,12 @@
               alt="JavaScript logo"
               width="75"
             />
-            <h1 class="mb-4">JavaScript Sample Project</h1>
+            <h1 class="mb-4">LP Guide Sample Project</h1>
 
-            <p class="lead">
+            <p class="text-center">
               This is a sample application that demonstrates an authentication
-              flow for an SPA, using plain JavaScript
+              flow for an SPA, using plain JavaScript and integrates with LivePersion's
+              Authenticated Messaging using oAuth Implicit Flow.
             </p>
           </div>
 
@@ -184,66 +185,165 @@
             <div class="row">
               <div class="col-md-5 mb-4">
                 <h6 class="mb-3">
-                  <a href="https://auth0.com/docs/connections">
-                    <i class="fas fa-link"></i> Configure other identity
-                    providers
-                  </a>
+                  <div class="text-primary">
+                    <i class="fas fa-info-circle"></i> LP Engagement Button
+                  </div>                  
                 </h6>
                 <p>
-                  Auth0 supports social providers as Facebook, Twitter,
-                  Instagram and 100+, Enterprise providers as Microsoft Office
-                  365, Google Apps, Azure, and more. You can also use any OAuth2
-                  Authorization Server.
+                  Wait for LP's Authenticated Engagement Button to show up.  It might a take few seconds initially. 
+                  Try refresh the page if you don't see it.  Or check engagement setting.
                 </p>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  Show me
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Engagement Button</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <img src="../images/message.png" class="img-fluid rounded">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
               </div>
 
               <div class="col-md"></div>
 
               <div class="col-md-5 mb-4">
                 <h6 class="mb-3">
-                  <a href="https://auth0.com/docs/multifactor-authentication">
-                    <i class="fas fa-link"></i> Enable Multifactor
-                    Authentication
-                  </a>
+                  <div class="text-primary">
+                    <i class="fas fa-info-circle"></i> Login With Any Google Account
+                  </div>                  
                 </h6>
                 <p>
-                  Add an extra layer of security by enabling Multi-factor
-                  Authentication, requiring your users to provide more than one
-                  piece of identifying information. Push notifications,
-                  authenticator apps, SMS, and DUO Security are supported.
+                  Click the Log in button and use any google or google workplace
+                  account to login to the application.  If this is your first time, 
+                  you will have to gave this app permission.
                 </p>
+
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+                  Show me
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Engagement Window</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <img src="../images/login.png" class="rounded mx-auto d-block">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-5 mb-4">
                 <h6 class="mb-3">
-                  <a href="https://auth0.com/docs/anomaly-detection">
-                    <i class="fas fa-link"></i> Anomaly Detection
-                  </a>
+                  <div class="text-primary">
+                    <i class="fas fa-info-circle"></i> Check Your Profile
+                  </div>
                 </h6>
                 <p>
-                  Auth0 can detect anomalies and stop malicious attempts to
-                  access your application. Anomaly detection can alert you and
-                  your users of suspicious activity, as well as block further
-                  login attempts.
+                  Click the Log in button and then profile to display your profile returned by google.
+                  Profile claims also contain basic user profile such as name, email etc.  We can
+                  also introduce custom lp_sdes in the claims.
                 </p>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter3">
+                  Show me
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Log in Button</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <img src="../images/profile.png" class="img-fluid">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
               <div class="col-md"></div>
 
               <div class="col-md-5 mb-4">
                 <h6 class="mb-3">
-                  <a href="https://auth0.com/docs/rules">
-                    <i class="fas fa-link"></i> Learn About Rules
-                  </a>
+                  <div class="text-primary">
+                    <i class="fas fa-info-circle"></i> Start An Authenticated Messaging
+                  </div>
                 </h6>
                 <p>
-                  Rules are JavaScript functions that execute when a user
-                  authenticates to your application. They run once the
-                  authentication process is complete, and you can use them to
-                  customize and extend Auth0's capabilities.
+                  Click the Message Us button to start an authenticated messaging.  
+                  You should be greeted by the initial LP greeting message.
+                  Log in to the account as an agent to receive the conversation
+                  Validate Authenticated Messaging indicators.
                 </p>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter4">
+                  Show me
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Agent Workspace</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <img src="../images/auth.png" class="img-fluid">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
               </div>
             </div>
           </div>
@@ -275,7 +375,7 @@
       <footer class="bg-light text-center p-5">
         <div class="logo"></div>
         <p>
-          Sample project provided by autorefresh123
+          Sample project provided by
           <a href="https://auth0.com">Auth0</a>
         </p>
       </footer>
