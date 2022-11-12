@@ -76,7 +76,7 @@ app.get("/newlpsite", (_, res2) => {
   req.end();
 });
 
-app.post("/newidp", (req, res) => {
+app.post("/newidp", (req, res2) => {
   console.log("in newidp");
   var https = require("follow-redirects").https;
   var fs = require("fs");
@@ -119,6 +119,7 @@ app.post("/newidp", (req, res) => {
     res.on("end", function (chunk) {
       var body = Buffer.concat(chunks);
       console.log(body.toString());
+      res2.send(body.toString());
     });
 
     res.on("error", function (error) {
@@ -153,7 +154,7 @@ app.post("/newidp", (req, res) => {
   res.status(200);
 });
 
-app.post("/newengagement", (req, res) => {
+app.post("/newengagement", (req, res2) => {
   console.log("in engagement");
   var site = req.body;
   var https = require("follow-redirects").https;
@@ -205,6 +206,7 @@ app.post("/newengagement", (req, res) => {
     res.on("end", function (chunk) {
       var body = Buffer.concat(chunks);
       console.log(body.toString());
+      res2.send(body.toString());
     });
 
     res.on("error", function (error) {
@@ -225,8 +227,6 @@ app.post("/newengagement", (req, res) => {
   req.write(postData);
 
   req.end();
-
-  res.status(200);
 });
 
 app.get("/*", (_, res) => {

@@ -234,7 +234,7 @@ async function createEnagement() {
 
   newSite.vep = await getVep(newSite.account);
   newSite.bearer = await getBearer(newSite);
-  // newSite.implicit = await setIdp(newSite);
+  newSite.implicit = await setIdp(newSite);
   newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
   newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
   newSite.onsiteLocaitonId = await getOnsiteLocationId(
