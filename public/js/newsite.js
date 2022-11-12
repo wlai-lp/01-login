@@ -6,7 +6,7 @@ $(document).ready(function () {
 
   async function createEngagement(site) {
     var myHeaders = new Headers();
-    myHeaders.append("authority", "va-a.ac.liveperson.net");
+    myHeaders.append("authority", "va.ac.liveperson.net");
     myHeaders.append("accept", "*/*");
     myHeaders.append("accept-language", "en-US,en;q=0.9");
     myHeaders.append("authorization", "Bearer " + site.bearer);
@@ -20,10 +20,10 @@ $(document).ready(function () {
       "lp-url",
       "https://z1-a.le.liveperson.net/a/5660383/#/camp/campaigns/web/4461081132/engagement/web/new/windows"
     );
-    myHeaders.append("origin", "https://va-a.ac.liveperson.net");
+    myHeaders.append("origin", "https://va.ac.liveperson.net");
     myHeaders.append(
       "referer",
-      "https://va-a.ac.liveperson.net/postmessage/postmessage.min.html?bust=1667937353220&loc=https%3A%2F%2Fz1-a.le.liveperson.net"
+      "https://va.ac.liveperson.net/postmessage/postmessage.min.html?bust=1667937353220&loc=https%3A%2F%2Fz1-a.le.liveperson.net"
     );
     myHeaders.append(
       "sec-ch-ua",
@@ -60,7 +60,7 @@ $(document).ready(function () {
     };
 
     return await fetch(
-      "https://va-a.ac.liveperson.net/api/account/" +
+      "https://va.ac.liveperson.net/api/account/" +
         site.account +
         "/configuration/le-campaigns/campaigns/" +
         site.campaign +
@@ -84,7 +84,7 @@ $(document).ready(function () {
     };
 
     return await fetch(
-      "https://va-a.ac.liveperson.net/api/account/" +
+      "https://va.ac.liveperson.net/api/account/" +
         account +
         "/configuration/le-connectors/connectors?v=2.0",
       requestOptions
@@ -112,7 +112,7 @@ $(document).ready(function () {
     };
 
     return await fetch(
-      "https://va-a.ac.liveperson.net/api/account/" +
+      "https://va.ac.liveperson.net/api/account/" +
         account +
         "/configuration/le-targeting/visitor-behaviors?v=2.0",
       requestOptions
@@ -140,7 +140,7 @@ $(document).ready(function () {
     };
 
     return await fetch(
-      "https://va-a.ac.liveperson.net/api/account/" +
+      "https://va.ac.liveperson.net/api/account/" +
         account +
         "/configuration/le-targeting/onsite-locations?v=3.0",
       requestOptions
@@ -168,7 +168,7 @@ $(document).ready(function () {
     };
 
     return await fetch(
-      "https://va-a.ac.liveperson.net/api/account/" +
+      "https://va.ac.liveperson.net/api/account/" +
         account +
         "/configuration/engagement-window/window-confs?v=2.0",
       requestOptions
@@ -196,7 +196,7 @@ $(document).ready(function () {
     };
 
     return await fetch(
-      "https://va-a.ac.liveperson.net/api/account/" +
+      "https://va.ac.liveperson.net/api/account/" +
         account +
         "/configuration/le-campaigns/campaigns?v=3.4&fields=id",
       requestOptions
@@ -214,7 +214,7 @@ $(document).ready(function () {
 
   async function setImplicit(account, bearer) {
     var myHeaders = new Headers();
-    myHeaders.append("authority", "va-a.ac.liveperson.net");
+    myHeaders.append("authority", "va.ac.liveperson.net");
     myHeaders.append("accept", "*/*");
     myHeaders.append("accept-language", "en-US,en;q=0.9");
     myHeaders.append("authorization", "Bearer " + bearer);
@@ -264,7 +264,7 @@ $(document).ready(function () {
 
     // TODO: need to confirm this part works
     return await fetch(
-      "https://va-a.ac.liveperson.net/api/account/" +
+      "https://va.ac.liveperson.net/api/account/" +
         account +
         "/configuration/le-connectors/connectors?v=1.0",
       requestOptions
@@ -343,30 +343,144 @@ $(document).ready(function () {
     return await fetch("/newengagement", requestOptions)
       .then((response) => response.status)
       .then((result) => {
-        console.log(result);        
+        console.log(result);
         return result;
       })
       .catch((error) => console.log("error", error));
   }
 
+  async function createSite() {
+    var myHeaders = new Headers();
+    myHeaders.append("authority", "supportlab.lpnet.com");
+    myHeaders.append("accept", "application/json, text/plain, */*");
+    myHeaders.append("accept-language", "en-US,en;q=0.9");
+    myHeaders.append("cache-control", "no-cache");
+    myHeaders.append("content-type", "application/json;charset=UTF-8");
+    myHeaders.append("origin", "https://supportal.lpnet.com");
+    myHeaders.append("pragma", "no-cache");
+    myHeaders.append("referer", "https://supportal.lpnet.com/");
+    myHeaders.append(
+      "sec-ch-ua",
+      '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"'
+    );
+    myHeaders.append("sec-ch-ua-mobile", "?0");
+    myHeaders.append("sec-ch-ua-platform", '"macOS"');
+    myHeaders.append("sec-fetch-dest", "empty");
+    myHeaders.append("sec-fetch-mode", "cors");
+    myHeaders.append("sec-fetch-site", "same-site");
+    myHeaders.append(
+      "user-agent",
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+    );
+
+    var raw =
+      '{\n    "domain": "sales.liveperson.net",\n    "language": "en-US",\n    "flow": "Trial",\n    "email": "wlai@liveperson.com",\n    "platform": "Messaging",\n    "provisioningData": {\n        "packages": [\n            "LE_Platform"\n        ],\n        "acFeatures": [\n            "Common.Async_Messaging",\n            "Common.RichContent",\n            "Messaging.Un_Auth_Messaging",\n            "LEUI.Enforce_New_Agent_Workspace",\n            "Analytics.LiveEngage_2_SentimentAnalysis",\n            "Cobrowse.Cobrowse_Integration",\n            "Common.AgentGroups",\n            "Common.Api_key_management",\n            "Common.Billing_CPI2",\n            "Common.LiveEngage_2",\n            "Common.LiveEngage_2_Limit_Sticky_Size",\n            "Common.LiveEngage_2_Unified_window",\n            "Common.Profiles",\n            "LEUI.ConnectionBar_Display",\n            "LEUI.WebAnalytics",\n            "Reports.LiveEngage_2_EngagementHistory"\n        ]\n    },\n    "username": "authagent",\n    "password": "P@ssword1!"\n}';
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    return await fetch(
+      "https://supportlab.lpnet.com/api/le/register?requestor=registerer",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
+        var jsonData = JSON.parse(result);
+        var result = jsonData.account;
+        console.log("🚀 account id " + result);
+        return result;
+      })
+      .catch((error) => console.log("error", error));
+  }
+
+  async function setIdp(account, bearer) {
+    var myHeaders = new Headers();
+    myHeaders.append("authority", "va-a.ac.liveperson.net");
+    myHeaders.append("accept", "*/*");
+    myHeaders.append("accept-language", "en-US,en;q=0.9");
+    myHeaders.append(
+      "authorization",
+      "Bearer 994c2a80f20f0c65e36e64d9c92dbc381608b6b1c51d14493ab4fc5408b3c823"
+    );
+    myHeaders.append("content-type", "application/json");
+    myHeaders.append("origin", "https://z1-a.le.liveperson.net");
+    myHeaders.append(
+      "sec-ch-ua",
+      '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"'
+    );
+    myHeaders.append("sec-ch-ua-mobile", "?0");
+    myHeaders.append("sec-ch-ua-platform", '"macOS"');
+    myHeaders.append("sec-fetch-dest", "empty");
+    myHeaders.append("sec-fetch-mode", "cors");
+    myHeaders.append("sec-fetch-site", "same-site");
+    myHeaders.append(
+      "user-agent",
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+    );
+    myHeaders.append("Cookie", "JSESSIONID=0B7BBC9A3ACB0D1FDE8ACAB961A51BD0");
+
+    var raw = JSON.stringify({
+      configuration: {
+        preferred: false,
+        jwtValidationType: "PUBLIC_JWT_KEY",
+        issuerDisplayName: "Auth0",
+        authorizationEndpoint: "https://dev-ebsf4fc7.us.auth0.com/authorize",
+        issuer: "https://www.auth0.com",
+        jwtPublicKey:
+          "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt0kssy5Z4S5/V7Ub24tDoPgW7PO97+5q+UjOR7CrFruY0vfZqC7EWWBjNqlU+boNcaQS7dfo/V+Nut4bAXEvbuYcPNseBQBF/tiLv0sGEbafM+tvq1qAnn2dKNE7H1XSZtkDo8rHwzcibZhl7cKOvSSthaUws7sqNhk3rHM6wd49zGKCw5vi0LiWECdwlv39GL4O0ddFJPqijIhdnkRGHFXe3qYI/Ai7gPYjoua5oSoNfnuMXFFzXkxmy2bkyW5KJZYLEH4Hf/67Gjq8YE0AjI3SB+c8uuw9UJBlPYKPfrBdgjOOwAj+TgDy/Z4NPluxSnhng579zLXnrHrZFFAfXQIDAQAB",
+        jsMethodName: "lpGetAuthenticationToken",
+        jsContext: "window",
+        tokenEndpoint: null,
+        clientId: null,
+        clientSecret: null,
+        jwksEndpoint: null,
+      },
+      type: 1,
+      name: "diaplay name",
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://va.ac.liveperson.net/api/account/25754758/configuration/le-connectors/connectors?v=1.0",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  }
+
   (async () => {
-    newSite.account = 25754758;
+    newSite.account = 65261399;
+    // newSite.account = await createSite();
     newSite.vep = await getVep(newSite.account);
     newSite.bearer = await getBearer(newSite.account, newSite.vep);
-    newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
-    newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
-    newSite.onsiteLocaitonId = await getOnsiteLocationId(
-      newSite.account,
-      newSite.bearer
-    );
-    newSite.visitorBehavior = await getVisitorBehavior(
-      newSite.account,
-      newSite.bearer
-    );
-    newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
-    // newSite.engagementId = await createEngagement(newSite);
+    newSite.implicit = await setIdp(newSite.account, newSite.bearer);
 
-    newSite.url = await testEngagement(newSite);
-    console.log("new site " + newSite.url);
+    // newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
+    // newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
+    // newSite.onsiteLocaitonId = await getOnsiteLocationId(
+    //   newSite.account,
+    //   newSite.bearer
+    // );
+    // newSite.visitorBehavior = await getVisitorBehavior(
+    //   newSite.account,
+    //   newSite.bearer
+    // );
+    // newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
+    // // newSite.engagementId = await createEngagement(newSite);
+
+    // newSite.url = await testEngagement(newSite);
+    // console.log("new site " + newSite.url);
   })();
 });
