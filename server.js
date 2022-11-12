@@ -19,9 +19,78 @@ app.get("/newsite", (_, res) => {
   res.sendFile(join(__dirname, "newsite.html"));
 });
 
-app.get("/newsite", (req, res) => {
-  console.log("in newsite");
-  
+app.post("/newidp", (req, res) => {
+  console.log("in newidp");
+  var https = require("follow-redirects").https;
+  var fs = require("fs");
+
+  var options = {
+    method: "POST",
+    hostname: "va.ac.liveperson.net",
+    path: "/api/account/" + req.body.account + "/configuration/le-connectors/connectors?v=1.0",
+    headers: {
+      authority: "va.ac.liveperson.net",
+      accept: "*/*",
+      "accept-language": "en-US,en;q=0.9",
+      authorization: "Bearer " + req.body.bearer,
+      "content-type": "application/json",
+      origin: "https://z1-a.le.liveperson.net",
+      "sec-ch-ua":
+        '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": '"macOS"',
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-site",
+      "user-agent":
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+      Cookie: "JSESSIONID=0B7BBC9A3ACB0D1FDE8ACAB961A51BD0",
+    },
+    maxRedirects: 20,
+  };
+
+  var req = https.request(options, function (res) {
+    var chunks = [];
+
+    res.on("data", function (chunk) {
+      chunks.push(chunk);
+    });
+
+    res.on("end", function (chunk) {
+      var body = Buffer.concat(chunks);
+      console.log(body.toString());
+    });
+
+    res.on("error", function (error) {
+      console.error(error);
+    });
+  });
+
+  var postData = JSON.stringify({
+    configuration: {
+      preferred: false,
+      jwtValidationType: "PUBLIC_JWT_KEY",
+      issuerDisplayName: "Auth0",
+      authorizationEndpoint: "https://dev-ebsf4fc7.us.auth0.com/authorize",
+      issuer: "https://www.auth0.com",
+      jwtPublicKey:
+        "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt0kssy5Z4S5/V7Ub24tDoPgW7PO97+5q+UjOR7CrFruY0vfZqC7EWWBjNqlU+boNcaQS7dfo/V+Nut4bAXEvbuYcPNseBQBF/tiLv0sGEbafM+tvq1qAnn2dKNE7H1XSZtkDo8rHwzcibZhl7cKOvSSthaUws7sqNhk3rHM6wd49zGKCw5vi0LiWECdwlv39GL4O0ddFJPqijIhdnkRGHFXe3qYI/Ai7gPYjoua5oSoNfnuMXFFzXkxmy2bkyW5KJZYLEH4Hf/67Gjq8YE0AjI3SB+c8uuw9UJBlPYKPfrBdgjOOwAj+TgDy/Z4NPluxSnhng579zLXnrHrZFFAfXQIDAQAB",
+      jsMethodName: "lpGetAuthenticationToken",
+      jsContext: "window",
+      tokenEndpoint: null,
+      clientId: null,
+      clientSecret: null,
+      jwksEndpoint: null,
+    },
+    type: 1,
+    name: "diaplay name",
+  });
+
+  req.write(postData);
+
+  req.end();
+
+  res.status(200);
 });
 
 app.post("/newengagement", (req, res) => {
@@ -98,11 +167,10 @@ app.post("/newengagement", (req, res) => {
   req.end();
 
   res.status(200);
-    
 });
 
 app.get("/*", (_, res) => {
-  res.sendFile(join(__dirname, "index.html"));  
+  res.sendFile(join(__dirname, "index.html"));
 });
 
 process.on("SIGINT", function () {
