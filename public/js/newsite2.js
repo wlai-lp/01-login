@@ -11,7 +11,7 @@ async function getConnectorId(account, bearer) {
   };
 
   return await fetch(
-    "https://va.ac.liveperson.net/api/account/" +
+    "https://" + newSite.accountConfigReadWrite + "/api/account/" +
       account +
       "/configuration/le-connectors/connectors?v=2.0",
     requestOptions
@@ -230,14 +230,20 @@ async function setEngagement(site) {
     redirect: "follow",
   };
   return await fetch("/newengagement", requestOptions)
-    .then((response) => response.status)
+    .then((response) => response.text())
     .then((result) => {
       console.log(result);
-      return result;
+      // check to see if we have a engagement id, throw error if we don't
+      let jsonResult = JSON.parse(result);
+      if(jsonResult.id){
+        return jsonResult.id;
+      } else {
+        throw result;
+      }
     })
     .catch((error) => {
       console.log("error", error);
-      throw "something wrong";
+      throw error;
     });
 }
 async function createEnagement() {
@@ -265,7 +271,7 @@ async function createEnagement() {
     newSite.url = await setEngagement(newSite);
     //location.href = "http://localhost:3000/?site=" + newSite.account;
   } catch (error) {
-    hide();
+    hide(error);
   }
 }
 
@@ -287,10 +293,10 @@ function show() {
     hide();
   }
 }
-function hide() {
+function hide(error) {
   document.getElementById("spinner").classList.remove("show");
   // show alert
-  alert("🤷‍♀️ Something went wrong...", "danger");
+  alert("🤷‍♀️ Something went wrong..." + error, "danger");
 }
 
 function alert(message, type) {
