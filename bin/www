@@ -1,4 +1,8 @@
 const app = require('../server');
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+    console.log("Use : http://localhost:3000/newsite to create a new site");
+    console.log("Use : http://localhost:3000/?site=[your site] to use an exsiting one created by the tool");
+});
