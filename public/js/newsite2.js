@@ -42,7 +42,7 @@ async function getVisitorBehavior(account, bearer) {
   };
 
   return await fetch(
-    "https://va.ac.liveperson.net/api/account/" +
+    "https://" + newSite.accountConfigReadWrite + "/api/account/" +
       account +
       "/configuration/le-targeting/visitor-behaviors?v=2.0",
     requestOptions
@@ -69,7 +69,7 @@ async function getOnsiteLocationId(account, bearer) {
   };
 
   return await fetch(
-    "https://va.ac.liveperson.net/api/account/" +
+    "https://" + newSite.accountConfigReadWrite + "/api/account/" +
       account +
       "/configuration/le-targeting/onsite-locations?v=3.0",
     requestOptions
@@ -96,7 +96,7 @@ async function getWindowId(account, bearer) {
   };
 
   return await fetch(
-    "https://va.ac.liveperson.net/api/account/" +
+    "https://" + newSite.accountConfigReadWrite + "/api/account/" +
       account +
       "/configuration/engagement-window/window-confs?v=2.0",
     requestOptions
@@ -124,7 +124,7 @@ async function getCampaigns(account, bearer) {
   };
 
   return await fetch(
-    "https://va.ac.liveperson.net/api/account/" +
+    "https://" + newSite.accountConfigReadWrite + "/api/account/" +
       account +
       "/configuration/le-campaigns/campaigns?v=3.4&fields=id",
     requestOptions
@@ -236,6 +236,7 @@ async function setEngagement(site) {
       // check to see if we have a engagement id, throw error if we don't
       let jsonResult = JSON.parse(result);
       if(jsonResult.id){
+        console.log("🚀 Engagement id " + jsonResult.id);
         return jsonResult.id;
       } else {
         throw result;
@@ -268,8 +269,8 @@ async function createEnagement() {
       newSite.bearer
     );
     newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
-    newSite.url = await setEngagement(newSite);
-    //location.href = "http://localhost:3000/?site=" + newSite.account;
+    newSite.engagementId = await setEngagement(newSite);
+    location.href = "http://localhost:3000/?site=" + newSite.account;
   } catch (error) {
     hide(error);
   }
