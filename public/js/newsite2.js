@@ -257,7 +257,7 @@ async function createEnagement() {
     newSite.vep = newSite.vepac.split("|")[0];
     newSite.accountConfigReadWrite = newSite.vepac.split("|")[1];
     newSite.bearer = await getBearer(newSite);
-    // newSite.implicit = await setIdp(newSite);
+    newSite.implicit = await setIdp(newSite);
     newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
     newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
     newSite.onsiteLocaitonId = await getOnsiteLocationId(

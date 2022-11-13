@@ -135,9 +135,9 @@ app.post("/newidp", (req, res2) => {
     configuration: {
       preferred: false,
       jwtValidationType: "PUBLIC_JWT_KEY",
-      issuerDisplayName: "Auth3",
+      issuerDisplayName: "Auth0",
       authorizationEndpoint: "https://dev-ebsf4fc7.us.auth0.com/authorize",
-      issuer: "https://www.auth3.com",
+      issuer: "https://www.auth0.com",
       jwtPublicKey:
         "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt0kssy5Z4S5/V7Ub24tDoPgW7PO97+5q+UjOR7CrFruY0vfZqC7EWWBjNqlU+boNcaQS7dfo/V+Nut4bAXEvbuYcPNseBQBF/tiLv0sGEbafM+tvq1qAnn2dKNE7H1XSZtkDo8rHwzcibZhl7cKOvSSthaUws7sqNhk3rHM6wd49zGKCw5vi0LiWECdwlv39GL4O0ddFJPqijIhdnkRGHFXe3qYI/Ai7gPYjoua5oSoNfnuMXFFzXkxmy2bkyW5KJZYLEH4Hf/67Gjq8YE0AjI3SB+c8uuw9UJBlPYKPfrBdgjOOwAj+TgDy/Z4NPluxSnhng579zLXnrHrZFFAfXQIDAQAB",
       jsMethodName: "lpGetAuthenticationToken",
@@ -148,7 +148,7 @@ app.post("/newidp", (req, res2) => {
       jwksEndpoint: null,
     },
     type: 1,
-    name: "Auth3",
+    name: "Auth0",
   });
 
   req.write(postData);
