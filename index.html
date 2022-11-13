@@ -5,6 +5,13 @@
     <title>SPA SDK Sample</title>
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css"
+      integrity="sha512-Velp0ebMKjcd9RiCoaHhLXkR1sFoCCWXNp6w4zj1hfMifYB5441C+sKeBl/T/Ka6NjBiRfBBQRaQq65ekYz3UQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
@@ -119,13 +126,7 @@
 
               <!-- Responsive profile dropdown: show if authenticated -->
               <ul
-                class="
-                  navbar-nav
-                  d-md-none
-                  auth-visible
-                  hidden
-                  justify-content-between
-                "
+                class="navbar-nav d-md-none auth-visible hidden justify-content-between"
                 style="min-height: 125px"
               >
                 <li class="nav-item">
@@ -133,13 +134,7 @@
                     <!-- Profile image should be set to the profile picture from the id token -->
                     <img
                       alt="Profile picture"
-                      class="
-                        nav-user-profile
-                        d-inline-block
-                        profile-image
-                        rounded-circle
-                        mr-3
-                      "
+                      class="nav-user-profile d-inline-block profile-image rounded-circle mr-3"
                       width="50"
                     />
                     <!-- Show the user's full name from the id token here -->
@@ -164,14 +159,16 @@
       <div id="main-content" class="container mt-5 flex-grow-1">
         <div id="content-home" class="page">
           <div class="text-center hero">
-            <img src="https://static.liveperson.com/static-assets/2022/08/26160656/logo-light-new-png.png"/>
-            <hr>
+            <img
+              src="https://static.liveperson.com/static-assets/2022/08/26160656/logo-light-new-png.png"
+            />
+            <hr />
             <h1 class="mb-4">LP Guide Sample Project</h1>
 
             <p class="text-center">
               This is a sample application that demonstrates an authentication
-              flow for an SPA, using plain JavaScript and integrates with LivePersion's
-              Authenticated Messaging using oAuth Implicit Flow.
+              flow for an SPA, using plain JavaScript and integrates with
+              LivePersion's Authenticated Messaging using oAuth Implicit Flow.
             </p>
           </div>
 
@@ -181,41 +178,70 @@
             <div class="row">
               <div class="col-md-5 mb-4">
                 <h6 class="mb-3">
-                  <div class="text-primary">
+                  <a href="/images/login.png" data-toggle="lightbox">
                     <i class="fas fa-info-circle"></i> LP Engagement Button
-                  </div>                  
+                  </a>
                 </h6>
                 <p>
-                  Wait for LP's Authenticated Engagement Button to show up.  It might a take few seconds initially. 
-                  Try refresh the page if you don't see it.  Or check engagement setting.
+                  Wait for LP's Authenticated Engagement Button to show up. It
+                  might a take few seconds initially. Try refresh the page if
+                  you don't see it. Or check engagement setting.
                 </p>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModalCenter"
+                >
                   Show me
                 </button>
-                
+
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
+                <div
+                  class="modal fade"
+                  id="exampleModalCenter"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalCenterTitle"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="modal-dialog modal-dialog-centered"
+                    role="document"
+                  >
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Engagement Button</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                          Engagement Button
+                        </h5>
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <img src="../images/message.png" class="img-fluid rounded">
+                        <img
+                          src="../images/message.png"
+                          class="img-fluid rounded"
+                        />
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                        
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
-
-
-
               </div>
 
               <div class="col-md"></div>
@@ -223,40 +249,70 @@
               <div class="col-md-5 mb-4">
                 <h6 class="mb-3">
                   <div class="text-primary">
-                    <i class="fas fa-info-circle"></i> Login With Any Google Account
-                  </div>                  
+                    <i class="fas fa-info-circle"></i> Login With Any Google
+                    Account
+                  </div>
                 </h6>
                 <p>
                   Click the Log in button and use any google or google workplace
-                  account to login to the application.  If this is your first time, 
-                  you will have to gave this app permission.
+                  account to login to the application. If this is your first
+                  time, you will have to gave this app permission.
                 </p>
 
-
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModalCenter2"
+                >
                   Show me
                 </button>
-                
+
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
+                <div
+                  class="modal fade"
+                  id="exampleModalCenter2"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalCenterTitle"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="modal-dialog modal-dialog-centered"
+                    role="document"
+                  >
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Engagement Window</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                          Engagement Window
+                        </h5>
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <img src="../images/login.png" class="rounded mx-auto d-block">
+                        <img
+                          src="../images/login.png"
+                          class="rounded mx-auto d-block"
+                        />
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                        
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
 
@@ -268,35 +324,63 @@
                   </div>
                 </h6>
                 <p>
-                  Click the Log in button and then profile to display your profile returned by google.
-                  Profile claims also contain basic user profile such as name, email etc.  We can
-                  also introduce custom lp_sdes in the claims.
+                  Click the Log in button and then profile to display your
+                  profile returned by google. Profile claims also contain basic
+                  user profile such as name, email etc. We can also introduce
+                  custom lp_sdes in the claims.
                 </p>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter3">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModalCenter3"
+                >
                   Show me
                 </button>
-                
+
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
+                <div
+                  class="modal fade"
+                  id="exampleModalCenter3"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalCenterTitle"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="modal-dialog modal-dialog-centered"
+                    role="document"
+                  >
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Log in Button</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                          Log in Button
+                        </h5>
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <img src="../images/profile.png" class="img-fluid">
+                        <img src="../images/profile.png" class="img-fluid" />
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                        
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
-
               </div>
 
               <div class="col-md"></div>
@@ -304,42 +388,68 @@
               <div class="col-md-5 mb-4">
                 <h6 class="mb-3">
                   <div class="text-primary">
-                    <i class="fas fa-info-circle"></i> Start An Authenticated Messaging
+                    <i class="fas fa-info-circle"></i> Start An Authenticated
+                    Messaging
                   </div>
                 </h6>
                 <p>
-                  Click the Message Us button to start an authenticated messaging.  
-                  You should be greeted by the initial LP greeting message.
-                  Log in to the account as an agent to receive the conversation
-                  Validate Authenticated Messaging indicators.
+                  Click the Message Us button to start an authenticated
+                  messaging. You should be greeted by the initial LP greeting
+                  message. Log in to the account as an agent to receive the
+                  conversation Validate Authenticated Messaging indicators.
                 </p>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter4">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModalCenter4"
+                >
                   Show me
                 </button>
-                
+
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
+                <div
+                  class="modal fade"
+                  id="exampleModalCenter4"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalCenterTitle"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="modal-dialog modal-dialog-centered"
+                    role="document"
+                  >
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Agent Workspace</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                          Agent Workspace
+                        </h5>
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <img src="../images/auth.png" class="img-fluid">
+                        <img src="../images/auth.png" class="img-fluid" />
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                        
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
-
-
-
               </div>
             </div>
           </div>
@@ -381,11 +491,116 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/app.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+      $(document).on("click", '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+    </script>
     <!-- BEGIN LivePerson Monitor. -->
-    <script type="text/javascript">window.lpTag=window.lpTag||{},'undefined'==typeof window.lpTag._tagCount?(window.lpTag={wl:lpTag.wl||null,scp:lpTag.scp||null,site:''||'',section:lpTag.section||'',tagletSection:lpTag.tagletSection||null,autoStart:lpTag.autoStart!==!1,ovr:lpTag.ovr||{},_v:'1.10.0',_tagCount:1,protocol:'https:',events:{bind:function(t,e,i){lpTag.defer(function(){lpTag.events.bind(t,e,i)},0)},trigger:function(t,e,i){lpTag.defer(function(){lpTag.events.trigger(t,e,i)},1)}},defer:function(t,e){0===e?(this._defB=this._defB||[],this._defB.push(t)):1===e?(this._defT=this._defT||[],this._defT.push(t)):(this._defL=this._defL||[],this._defL.push(t))},load:function(t,e,i){var n=this;setTimeout(function(){n._load(t,e,i)},0)},_load:function(t,e,i){var n=t;t||(n=this.protocol+'//'+(this.ovr&&this.ovr.domain?this.ovr.domain:'lptag.liveperson.net')+'/tag/tag.js?site='+this.site);var o=document.createElement('script');o.setAttribute('charset',e?e:'UTF-8'),i&&o.setAttribute('id',i),o.setAttribute('src',n),document.getElementsByTagName('head').item(0).appendChild(o)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var t=this;window.attachEvent?window.attachEvent('onload',function(){t._domReady('domReady')}):(window.addEventListener('DOMContentLoaded',function(){t._domReady('contReady')},!1),window.addEventListener('load',function(){t._domReady('domReady')},!1)),'undefined'===typeof window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(t){this.isDom||(this.isDom=!0,this.events.trigger('LPT','DOM_READY',{t:t})),this._timing[t]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],hooks:lpTag.hooks||[],identities:lpTag.identities||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;</script>
+    <script type="text/javascript">
+      (window.lpTag = window.lpTag || {}),
+        "undefined" == typeof window.lpTag._tagCount
+          ? ((window.lpTag = {
+              wl: lpTag.wl || null,
+              scp: lpTag.scp || null,
+              site: "" || "",
+              section: lpTag.section || "",
+              tagletSection: lpTag.tagletSection || null,
+              autoStart: lpTag.autoStart !== !1,
+              ovr: lpTag.ovr || {},
+              _v: "1.10.0",
+              _tagCount: 1,
+              protocol: "https:",
+              events: {
+                bind: function (t, e, i) {
+                  lpTag.defer(function () {
+                    lpTag.events.bind(t, e, i);
+                  }, 0);
+                },
+                trigger: function (t, e, i) {
+                  lpTag.defer(function () {
+                    lpTag.events.trigger(t, e, i);
+                  }, 1);
+                },
+              },
+              defer: function (t, e) {
+                0 === e
+                  ? ((this._defB = this._defB || []), this._defB.push(t))
+                  : 1 === e
+                  ? ((this._defT = this._defT || []), this._defT.push(t))
+                  : ((this._defL = this._defL || []), this._defL.push(t));
+              },
+              load: function (t, e, i) {
+                var n = this;
+                setTimeout(function () {
+                  n._load(t, e, i);
+                }, 0);
+              },
+              _load: function (t, e, i) {
+                var n = t;
+                t ||
+                  (n =
+                    this.protocol +
+                    "//" +
+                    (this.ovr && this.ovr.domain
+                      ? this.ovr.domain
+                      : "lptag.liveperson.net") +
+                    "/tag/tag.js?site=" +
+                    this.site);
+                var o = document.createElement("script");
+                o.setAttribute("charset", e ? e : "UTF-8"),
+                  i && o.setAttribute("id", i),
+                  o.setAttribute("src", n),
+                  document.getElementsByTagName("head").item(0).appendChild(o);
+              },
+              init: function () {
+                (this._timing = this._timing || {}),
+                  (this._timing.start = new Date().getTime());
+                var t = this;
+                window.attachEvent
+                  ? window.attachEvent("onload", function () {
+                      t._domReady("domReady");
+                    })
+                  : (window.addEventListener(
+                      "DOMContentLoaded",
+                      function () {
+                        t._domReady("contReady");
+                      },
+                      !1
+                    ),
+                    window.addEventListener(
+                      "load",
+                      function () {
+                        t._domReady("domReady");
+                      },
+                      !1
+                    )),
+                  "undefined" === typeof window._lptStop && this.load();
+              },
+              start: function () {
+                this.autoStart = !0;
+              },
+              _domReady: function (t) {
+                this.isDom ||
+                  ((this.isDom = !0),
+                  this.events.trigger("LPT", "DOM_READY", { t: t })),
+                  (this._timing[t] = new Date().getTime());
+              },
+              vars: lpTag.vars || [],
+              dbs: lpTag.dbs || [],
+              ctn: lpTag.ctn || [],
+              sdes: lpTag.sdes || [],
+              hooks: lpTag.hooks || [],
+              identities: lpTag.identities || [],
+              ev: lpTag.ev || [],
+            }),
+            lpTag.init())
+          : (window.lpTag._tagCount += 1);
+    </script>
     <!-- BEGIN LivePerson Monitor. -->
     <script type="text/javascript" src="js/wei_auth.js"></script>
   </body>
