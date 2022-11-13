@@ -154,7 +154,10 @@ async function setIdp(site) {
       console.log(result);
       return result;
     })
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      console.log("error", error);
+      throw "something wrong";
+    });
 }
 
 async function getBearer(site) {
@@ -208,8 +211,12 @@ async function getVep(account) {
       var result = baseURIs.find(
         (entry) => entry.service == "agentVep"
       ).baseURI;
-      console.log("🚀 vep = " + result);
-      return result;
+      var accountConfigReadWrite = baseURIs.find(
+        (entry) => entry.service == "accountConfigReadWrite"
+      ).baseURI;
+      
+      console.log("🚀 vep|accountConfigReadWrite = " + result + "|" + accountConfigReadWrite);
+      return result + "|" + accountConfigReadWrite;
     })
     .catch((error) => console.log("error", error));
 }
@@ -228,7 +235,10 @@ async function setEngagement(site) {
       console.log(result);
       return result;
     })
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      console.log("error", error);
+      throw "something wrong";
+    });
 }
 async function createEnagement() {
   try {
@@ -236,7 +246,9 @@ async function createEnagement() {
     newSite.userId = document.getElementById("userId").value;
     newSite.pwd = document.getElementById("pwd").value;
 
-    newSite.vep = await getVep(newSite.account);
+    newSite.vepac = await getVep(newSite.account);
+    newSite.vep = newSite.vepac.split("|")[0];
+    newSite.accountConfigReadWrite = newSite.vepac.split("|")[1];
     newSite.bearer = await getBearer(newSite);
     // newSite.implicit = await setIdp(newSite);
     newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
