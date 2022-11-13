@@ -24,7 +24,10 @@ async function getConnectorId(account, bearer) {
       console.log("🚀 connectorId " + jsonData[0].id);
       return result;
     })
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      console.log("error", error);
+      throw "something wrong";
+    });
 }
 
 async function getVisitorBehavior(account, bearer) {
@@ -228,26 +231,30 @@ async function setEngagement(site) {
     .catch((error) => console.log("error", error));
 }
 async function createEnagement() {
-  newSite.account = document.getElementById("siteId").value;
-  newSite.userId = document.getElementById("userId").value;
-  newSite.pwd = document.getElementById("pwd").value;
+  try {
+    newSite.account = document.getElementById("siteId").value;
+    newSite.userId = document.getElementById("userId").value;
+    newSite.pwd = document.getElementById("pwd").value;
 
-  newSite.vep = await getVep(newSite.account);
-  newSite.bearer = await getBearer(newSite);
-  newSite.implicit = await setIdp(newSite);
-  newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
-  newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
-  newSite.onsiteLocaitonId = await getOnsiteLocationId(
-    newSite.account,
-    newSite.bearer
-  );
-  newSite.visitorBehavior = await getVisitorBehavior(
-    newSite.account,
-    newSite.bearer
-  );
-  newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
-  newSite.url = await setEngagement(newSite);
-  location.href = "http://localhost:3000/?site=" + newSite.account;
+    newSite.vep = await getVep(newSite.account);
+    newSite.bearer = await getBearer(newSite);
+    // newSite.implicit = await setIdp(newSite);
+    newSite.campaign = await getCampaigns(newSite.account, newSite.bearer);
+    newSite.windowId = await getWindowId(newSite.account, newSite.bearer);
+    newSite.onsiteLocaitonId = await getOnsiteLocationId(
+      newSite.account,
+      newSite.bearer
+    );
+    newSite.visitorBehavior = await getVisitorBehavior(
+      newSite.account,
+      newSite.bearer
+    );
+    newSite.connectorId = await getConnectorId(newSite.account, newSite.bearer);
+    newSite.url = await setEngagement(newSite);
+    //location.href = "http://localhost:3000/?site=" + newSite.account;
+  } catch (error) {
+    hide();
+  }
 }
 
 // (A) SHOW & HIDE SPINNER
@@ -262,10 +269,29 @@ function show() {
   document.getElementById("spinner").classList.add("show");
 
   // perform all actions to do engagement creation
-  createEnagement();
+  try {
+    createEnagement();
+  } catch (error) {
+    hide();
+  }
 }
 function hide() {
   document.getElementById("spinner").classList.remove("show");
+  // show alert
+  alert("🤷‍♀️ Something went wrong...", "danger");
+}
+
+function alert(message, type) {
+  var alertPlaceholder = document.getElementById("liveAlertPlaceholder");
+  var wrapper = document.createElement("div");
+  wrapper.innerHTML =
+    '<div class="alert alert-' +
+    type +
+    ' alert-dismissible" role="alert">' +
+    message +
+    '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+
+  alertPlaceholder.append(wrapper);
 }
 
 window.addEventListener("load", function () {
